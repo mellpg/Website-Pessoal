@@ -115,7 +115,8 @@
 
  }
 
- .Meu-perfil {
+ .Meu-perfil,
+ .card-projeto {
      width: 300px;
      height: 300px;
      border-radius: 50%;
@@ -226,10 +227,11 @@
      /* Centraliza na vertical */
      min-height: 80vh;
      /* Define que o container ocupa pelo menos 80% da altura da tela */
+     animation: entrarEsquerda 1s ease-out forwards;
  }
 
  .conteudo-principal {
-     width: 50%;
+     width: 60%;
      padding: 30px;
      border-radius: 20px;
      text-align: center;
