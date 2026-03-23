@@ -1,578 +1,565 @@
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'inter', sans-serif;
-    background: linear-gradient(-45deg, #808080, #696969, #000, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.navbar {
-    background-color: black;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-
-}
-
-.menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.menu li {
-    float: left;
-    list-style: none;
-}
-
-.menu li a {
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-    font-weight: 600;
-    /* Um pouco mais de peso para a fonte Inter */
-    position: relative;
-    /* Base para a linha interna */
-    transition: color 0.4s ease;
-    /* Transição suave apenas na cor */
-}
-
-/* Criamos a linha invisível embaixo do texto */
-.menu li a::after {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    /* Distância do texto */
-    left: 50%;
-    /* Começa no meio */
-    width: 0;
-    /* Largura zero inicial */
-    height: 2px;
-    /* Espessura da linha */
-    background: #23d5ab;
-
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    transform: translateX(-50%);
-    border-radius: 2px;
-    opacity: 0;
-}
-
-/* Efeito ao passar o mouse */
-.menu li a:hover {
-    color: #23d5ab;
-    /* O texto muda de cor suavemente */
-}
-
-
-
-.footer {
-    background-color: black;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    line-height: 1.5;
-    margin: 0;
-    font-size: 14px;
-    height: 10vh;
-}
-
-.perfil-container {
-    margin: 0;
-    padding: 0;
-    margin-top: 150px;
-    padding-left: 10%;
-    display: flex;
-    align-items: center;
-    padding-top: 30px;
-
-}
-
-.Meu-perfil {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    border: 3px solid #333;
-
-
-    animation: entrarEsquerda 1s ease-out forwards, pulsar 3s infinite 1s;
-}
-
-.bio-perfil {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-left: auto;
-    padding-right: 10%;
-
-
-    animation: entrarDireita 1s ease-out forwards;
-    animation-delay: 0.3s;
-
-    opacity: 0;
-}
-
-.bio-perfil li {
-    float: none;
-    margin-bottom: 10px;
-}
-
-.bio-perfil li p {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    margin: 0;
-    padding-left: 15px;
-    border-left: 4px solid #333;
-}
-
-
-
-@keyframes entrarEsquerda {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes entrarDireita {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-
-@keyframes pulsar {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.03);
-    }
-
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-.bio-subtexto {
-    font-size: 18px !important;
-    color: #555;
-    font-style: italic;
-    border-left: 4px solid #888 !important;
-    margin-top: 10px !important;
-
-}
-
-.nome-destacado {
-    font-size: 32px !important;
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 5px;
-
-}
-
-.container-sobre {
-    color: white;
-    display: flex;
-    justify-content: center;
-    /* Centraliza na horizontal */
-    align-items: center;
-    /* Centraliza na vertical */
-    min-height: 80vh;
-    /* Define que o container ocupa pelo menos 80% da altura da tela */
-}
-
-.conteudo-principal {
-    width: 50%;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Um fundo leve para destacar o centro */
-}
-
-/* projetos.html */
-
-/* O container pai alinha as sections na vertical ou horizontal */
-.container-projetos-pai {
-    display: flex;
-    flex-direction: column;
-    /* Coloca um projeto abaixo do outro */
-    justify-content: center;
-    /* Centraliza verticalmente  no espaço do main */
-    align-items: center;
-    /* Centraliza horizontalmente  */
-    gap: 30px;
-    /* Espaço entre os cards */
-
-    min-height: 100vh;
-    /* Faz o container ter no mínimo a altura da tela inteira */
-    padding-top: 80px;
-    /* Espaço para não bater na navbar fixa */
-    padding-bottom: 10vh;
-    /* Espaço para não bater no footer fixo */
-    box-sizing: border-box;
-    /* Garante que o padding não aumente o tamanho da tela */
-}
-
-.card-projeto {
-    display: flex;
-    align-items: center;
-    background: rgba(26, 26, 26, 0.9);
-    border-radius: 15px;
-    width: 90%;
-    /* Ocupa quase toda a largura em telas pequenas */
-    max-width: 800px;
-    /* Limita o tamanho em telas grandes para ficar elegante */
-    overflow: hidden;
-    color: white;
-}
-
-.projeto-info {
-    padding: 20px;
-    flex: 1;
-    /* Faz o texto ocupar o espaço restante */
-}
-
-.projeto-imagem {
-    display: flex;
-    /* Se tiver mais de uma imagem, elas ficam lado a lado */
-    background: #000;
-}
-
-.projeto-imagem img {
-    width: 200px;
-    height: 200px;
-    /* Altura fixa para manter o padrão */
-    object-fit: contain;
-    /* Corta a imagem sem distorcer para preencher o espaço */
-    display: block;
-
-}
-
-/* Centraliza tudo na página de notícias */
-.main-noticias {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    /* Para ficar no meio da tela verticalmente */
-    padding-top: 80px;
-}
-
-/* Faz o texto e a imagem ficarem lado a lado */
-.container-noticias {
-    display: flex;
-    align-items: center;
-    /* Alinha verticalmente o texto com o centro da imagem */
-    gap: 50px;
-    /* Espaço entre o texto e a imagem */
-    padding: 40px;
-    border-radius: 20px;
-    color: white;
-}
-
-.texto-noticias {
-    max-width: 400px;
-    /* Evita que o texto estique demais */
-}
-
-.github {
-    width: 150px;
-    transition: transform 0.3s ease;
-    border-radius: 50%;
-    border: 2px solid #333;
-
-
-    animation: entrarEsquerda 1s ease-out forwards, pulsar 3s infinite 1s;
-
-
-}
-
-.github img {
-    width: 100%;
-    /* Garante que a imagem siga o tamanho da div pai */
-    height: auto;
-}
-
-.github:hover {
-    transform: scale(1.1);
-    /* Efeito de crescer ao passar o mouse */
-}
-
-.link-github {
-    color: #23d5ab;
-    text-decoration: none;
-    font-weight: bold;
-    border: 1px solid #23d5ab;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 15px;
-=======
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'inter', sans-serif;
-    background: linear-gradient(-45deg, #808080, #696969, #000, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.navbar {
-    background-color: black;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-
-}
-
-.menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.menu li {
-    float: left;
-    list-style: none;
-}
-
-.menu li a {
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-    font-weight: 600;
-    /* Um pouco mais de peso para a fonte Inter */
-    position: relative;
-    /* Base para a linha interna */
-    transition: color 0.4s ease;
-    /* Transição suave apenas na cor */
-}
-
-/* Criamos a linha invisível embaixo do texto */
-.menu li a::after {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    /* Distância do texto */
-    left: 50%;
-    /* Começa no meio */
-    width: 0;
-    /* Largura zero inicial */
-    height: 2px;
-    /* Espessura da linha */
-    background: #23d5ab;
-
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    transform: translateX(-50%);
-    border-radius: 2px;
-    opacity: 0;
-}
-
-/* Efeito ao passar o mouse */
-.menu li a:hover {
-    color: #23d5ab;
-    /* O texto muda de cor suavemente */
-}
-
-
-
-.footer {
-    background-color: black;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    line-height: 1.5;
-    margin: 0;
-    font-size: 14px;
-    height: 10vh;
-}
-
-.perfil-container {
-    margin: 0;
-    padding: 0;
-    margin-top: 150px;
-    padding-left: 10%;
-    display: flex;
-    align-items: center;
-    padding-top: 30px;
-
-}
-
-.minha-foto {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    border: 3px solid #333;
-
-
-    animation: entrarEsquerda 1s ease-out forwards, pulsar 3s infinite 1s;
-}
-
-.bio-perfil {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-left: auto;
-    padding-right: 10%;
-
-
-    animation: entrarDireita 1s ease-out forwards;
-    animation-delay: 0.3s;
-
-    opacity: 0;
-}
-
-.bio-perfil li {
-    float: none;
-    margin-bottom: 10px;
-}
-
-.bio-perfil li p {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    margin: 0;
-    padding-left: 15px;
-    border-left: 4px solid #333;
-}
-
-
-
-@keyframes entrarEsquerda {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes entrarDireita {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-
-@keyframes pulsar {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.03);
-    }
-
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-.bio-subtexto {
-    font-size: 18px !important;
-    color: #555;
-    font-style: italic;
-    border-left: 4px solid #888 !important;
-    margin-top: 10px !important;
-
-}
-
-.nome-destacado {
-    font-size: 32px !important;
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 5px;
-
->>>>>>> 033c282eca7ec158cdcb5443f27594912c915021
-}
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+
+ body {
+     margin: 0;
+     padding: 0;
+     font-family: 'inter', sans-serif;
+     background: linear-gradient(-45deg, #808080, #696969, #000, #23d5ab);
+     background-size: 400% 400%;
+     animation: gradient 15s ease infinite;
+
+ }
+
+ @keyframes gradient {
+     0% {
+         background-position: 0% 50%;
+     }
+
+     50% {
+         background-position: 100% 50%;
+     }
+
+     100% {
+         background-position: 0% 50%;
+     }
+ }
+
+ .navbar {
+     background-color: black;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1000;
+
+ }
+
+ .menu {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+ }
+
+ .menu li {
+     float: left;
+     list-style: none;
+ }
+
+ .menu li a {
+     display: block;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+     font-size: 16px;
+     color: white;
+     font-weight: 600;
+     /* Um pouco mais de peso para a fonte Inter */
+     position: relative;
+     /* Base para a linha interna */
+     transition: color 0.4s ease;
+     /* Transição suave apenas na cor */
+ }
+
+ /* Criamos a linha invisível embaixo do texto */
+ .menu li a::after {
+     content: '';
+     position: absolute;
+     bottom: 8px;
+     /* Distância do texto */
+     left: 50%;
+     /* Começa no meio */
+     width: 0;
+     /* Largura zero inicial */
+     height: 2px;
+     /* Espessura da linha */
+     background: #23d5ab;
+
+     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+     transform: translateX(-50%);
+     border-radius: 2px;
+     opacity: 0;
+ }
+
+ /* Efeito ao passar o mouse */
+ .menu li a:hover {
+     color: #23d5ab;
+     /* O texto muda de cor suavemente */
+ }
+
+
+
+ .footer {
+     background-color: black;
+     color: #f2f2f2;
+     text-align: center;
+     padding: 15px 0;
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     line-height: 1.5;
+     margin: 0;
+     font-size: 14px;
+     height: 10vh;
+ }
+
+ .perfil-container {
+     margin: 0;
+     padding: 0;
+     margin-top: 150px;
+     padding-left: 10%;
+     display: flex;
+     align-items: center;
+     padding-top: 30px;
+
+ }
+
+ .Meu-perfil {
+     width: 300px;
+     height: 300px;
+     border-radius: 50%;
+     object-fit: cover;
+     display: block;
+     border: 3px solid #333;
+
+
+     animation: entrarEsquerda 1s ease-out forwards, pulsar 3s infinite 1s;
+ }
+
+ .bio-perfil {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     margin-left: auto;
+     padding-right: 10%;
+
+
+     animation: entrarDireita 1s ease-out forwards;
+     animation-delay: 0.3s;
+
+     opacity: 0;
+ }
+
+ .bio-perfil li {
+     float: none;
+     margin-bottom: 10px;
+ }
+
+ .bio-perfil li p {
+     color: white;
+     font-size: 24px;
+     font-weight: bold;
+     text-align: left;
+     margin: 0;
+     padding-left: 15px;
+     border-left: 4px solid #333;
+ }
+
+
+
+ @keyframes entrarEsquerda {
+     from {
+         opacity: 0;
+         transform: translateX(-100px);
+
+     }
+
+     to {
+         opacity: 1;
+         transform: translateX(0);
+     }
+ }
+
+ @keyframes entrarDireita {
+     from {
+         opacity: 0;
+         transform: translateX(100px);
+
+     }
+
+     to {
+         opacity: 1;
+         transform: translateX(0);
+     }
+ }
+
+
+ @keyframes pulsar {
+     0% {
+         transform: scale(1);
+     }
+
+     50% {
+         transform: scale(1.03);
+     }
+
+
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ .bio-subtexto {
+     font-size: 18px !important;
+     color: #555;
+     font-style: italic;
+     border-left: 4px solid #888 !important;
+     margin-top: 10px !important;
+
+ }
+
+ .nome-destacado {
+     font-size: 32px !important;
+     color: #000;
+     font-weight: bold;
+     margin-bottom: 5px;
+
+ }
+
+ .container-sobre {
+     color: white;
+     display: flex;
+     justify-content: center;
+     /* Centraliza na horizontal */
+     align-items: center;
+     /* Centraliza na vertical */
+     min-height: 80vh;
+     /* Define que o container ocupa pelo menos 80% da altura da tela */
+ }
+
+ .conteudo-principal {
+     width: 50%;
+     padding: 30px;
+     border-radius: 20px;
+     text-align: center;
+     background-color: rgba(255, 255, 255, 0.1);
+     /* Um fundo leve para destacar o centro */
+ }
+
+ /* projetos.html */
+
+ /* O container pai alinha as sections na vertical ou horizontal */
+ .container-projetos-pai {
+     display: flex;
+     flex-direction: column;
+     /* Coloca um projeto abaixo do outro */
+     justify-content: center;
+     /* Centraliza verticalmente  no espaço do main */
+     align-items: center;
+     /* Centraliza horizontalmente  */
+     gap: 30px;
+     /* Espaço entre os cards */
+
+     min-height: 100vh;
+     /* Faz o container ter no mínimo a altura da tela inteira */
+     padding-top: 80px;
+     /* Espaço para não bater na navbar fixa */
+     padding-bottom: 10vh;
+     /* Espaço para não bater no footer fixo */
+     box-sizing: border-box;
+     /* Garante que o padding não aumente o tamanho da tela */
+ }
+
+ .card-projeto {
+     display: flex;
+     align-items: center;
+     background: rgba(26, 26, 26, 0.9);
+     border-radius: 15px;
+     width: 90%;
+     /* Ocupa quase toda a largura em telas pequenas */
+     max-width: 800px;
+     /* Limita o tamanho em telas grandes para ficar elegante */
+     overflow: hidden;
+     color: white;
+ }
+
+ .projeto-info {
+     padding: 20px;
+     flex: 1;
+     /* Faz o texto ocupar o espaço restante */
+ }
+
+ .projeto-imagem {
+     display: flex;
+     /* Se tiver mais de uma imagem, elas ficam lado a lado */
+     background: #000;
+ }
+
+ .projeto-imagem img {
+     width: 200px;
+     height: 200px;
+     /* Altura fixa para manter o padrão */
+     object-fit: contain;
+     /* Corta a imagem sem distorcer para preencher o espaço */
+     display: block;
+
+ }
+
+ /* Centraliza tudo na página de notícias */
+ .main-noticias {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 80vh;
+     /* Para ficar no meio da tela verticalmente */
+     padding-top: 80px;
+ }
+
+ /* Faz o texto e a imagem ficarem lado a lado */
+ .container-noticias {
+     display: flex;
+     align-items: center;
+     /* Alinha verticalmente o texto com o centro da imagem */
+     gap: 50px;
+     /* Espaço entre o texto e a imagem */
+     padding: 40px;
+     border-radius: 20px;
+     color: white;
+ }
+
+ .texto-noticias {
+     max-width: 400px;
+     /* Evita que o texto estique demais */
+ }
+
+ .github {
+     width: 150px;
+     transition: transform 0.3s ease;
+     border-radius: 50%;
+     border: 2px solid #333;
+
+
+     animation: entrarEsquerda 1s ease-out forwards, pulsar 3s infinite 1s;
+
+
+ }
+
+ .github img {
+     width: 100%;
+     /* Garante que a imagem siga o tamanho da div pai */
+     height: auto;
+ }
+
+ .github:hover {
+     transform: scale(1.1);
+     /* Efeito de crescer ao passar o mouse */
+ }
+
+ .link-github {
+     color: #23d5ab;
+     text-decoration: none;
+     font-weight: bold;
+     border: 1px solid #23d5ab;
+     padding: 10px 20px;
+     border-radius: 5px;
+     display: inline-block;
+     margin-top: 15px;
+ }
+
+
+ @keyframes gradient {
+     0% {
+         background-position: 0% 50%;
+     }
+
+     50% {
+         background-position: 100% 50%;
+     }
+
+     100% {
+         background-position: 0% 50%;
+     }
+ }
+
+ .navbar {
+     background-color: black;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1000;
+
+ }
+
+ .menu {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+ }
+
+ .menu li {
+     float: left;
+     list-style: none;
+ }
+
+ .menu li a {
+     display: block;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+     font-size: 16px;
+     color: white;
+     font-weight: 600;
+     /* Um pouco mais de peso para a fonte Inter */
+     position: relative;
+     /* Base para a linha interna */
+     transition: color 0.4s ease;
+     /* Transição suave apenas na cor */
+ }
+
+ /* Criamos a linha invisível embaixo do texto */
+ .menu li a::after {
+     content: '';
+     position: absolute;
+     bottom: 8px;
+     /* Distância do texto */
+     left: 50%;
+     /* Começa no meio */
+     width: 0;
+     /* Largura zero inicial */
+     height: 2px;
+     /* Espessura da linha */
+     background: #23d5ab;
+
+     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+     transform: translateX(-50%);
+     border-radius: 2px;
+     opacity: 0;
+ }
+
+ /* Efeito ao passar o mouse */
+ .menu li a:hover {
+     color: #23d5ab;
+     /* O texto muda de cor suavemente */
+ }
+
+
+
+ .footer {
+     background-color: black;
+     color: #f2f2f2;
+     text-align: center;
+     padding: 15px 0;
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     line-height: 1.5;
+     margin: 0;
+     font-size: 14px;
+     height: 10vh;
+ }
+
+ .perfil-container {
+     margin: 0;
+     padding: 0;
+     margin-top: 150px;
+     padding-left: 10%;
+     display: flex;
+     align-items: center;
+     padding-top: 30px;
+
+ }
+
+ .minha-foto {
+     width: 300px;
+     height: 300px;
+     border-radius: 50%;
+     object-fit: cover;
+     display: block;
+     border: 3px solid #333;
+
+
+     animation: entrarEsquerda 1s ease-out forwards, pulsar 3s infinite 1s;
+ }
+
+ .bio-perfil {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     margin-left: auto;
+     padding-right: 10%;
+
+
+     animation: entrarDireita 1s ease-out forwards;
+     animation-delay: 0.3s;
+
+     opacity: 0;
+ }
+
+ .bio-perfil li {
+     float: none;
+     margin-bottom: 10px;
+ }
+
+ .bio-perfil li p {
+     color: white;
+     font-size: 24px;
+     font-weight: bold;
+     text-align: left;
+     margin: 0;
+     padding-left: 15px;
+     border-left: 4px solid #333;
+ }
+
+
+
+ @keyframes entrarEsquerda {
+     from {
+         opacity: 0;
+         transform: translateX(-100px);
+
+     }
+
+     to {
+         opacity: 1;
+         transform: translateX(0);
+     }
+ }
+
+ @keyframes entrarDireita {
+     from {
+         opacity: 0;
+         transform: translateX(100px);
+
+     }
+
+     to {
+         opacity: 1;
+         transform: translateX(0);
+     }
+ }
+
+
+ @keyframes pulsar {
+     0% {
+         transform: scale(1);
+     }
+
+     50% {
+         transform: scale(1.03);
+     }
+
+
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ .bio-subtexto {
+     font-size: 18px !important;
+     color: #555;
+     font-style: italic;
+     border-left: 4px solid #888 !important;
+     margin-top: 10px !important;
+
+ }
+
+ .nome-destacado {
+     font-size: 32px !important;
+     color: #000;
+     font-weight: bold;
+     margin-bottom: 5px;
+
+ }
