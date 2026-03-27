@@ -14,5 +14,5 @@ Este site foi desenvolvido para ser minha "vitrine" digital. Ele apresenta quem 
 # Prévia do projeto
 
 <p align="center">
-  <video src="./website_gif.mp4" alt="Preview da calculadora" width="300"/>
+  <img src="./imagens/website_gif.gif" alt="Preview do site" width="900"/>
 </p>
