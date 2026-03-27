@@ -10,3 +10,9 @@ Este site foi desenvolvido para ser minha "vitrine" digital. Ele apresenta quem 
 * CSS3
 * Flexbox: Organização responsiva do container de perfil
 * Google Fonts
+
+# Prévia do projeto
+
+<p align="center">
+  <video src="./website_gif.mp4" alt="Preview da calculadora" width="300"/>
+</p>
