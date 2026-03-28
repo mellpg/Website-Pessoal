@@ -225,6 +225,7 @@ body {
 .projeto-info {
   padding: 20px;
   order: 1;
+  gap: 10px;
 }
 
 .projeto-info h2 {
@@ -264,6 +265,10 @@ body {
   margin-top: 5px;
   margin-right: 5px;
   text-transform: uppercase;
+  margin-right: 10px; /* Adiciona espaço à direita de cada span */
+}
+.tech:last-child {
+  margin-right: 0;
 }
 
 .main-noticias {
@@ -316,4 +321,10 @@ body {
   border-radius: 5px;
   display: inline-block;
   margin-top: 15px;
+}
+
+.tech-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
